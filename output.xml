@@ -1,173 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.1.1 (Python 3.12.0 on win32)" generated="2024-11-08T19:02:39.199467" rpa="false" schemaversion="5">
-<suite id="s1" name="Api Tests" source="C:\Users\safac\OneDrive\Desktop\flaskapp\tests\api_tests.robot">
-<test id="s1-t1" name="Add Employee Test" line="9">
+<robot generator="Robot 7.1.1 (Python 3.12.0 on win32)" generated="2024-11-08T19:26:40.337441" rpa="false" schemaversion="5">
+<suite id="s1" name="Profile" source="C:\Users\safac\OneDrive\Desktop\flaskapp\tests\profile.robot">
+<test id="s1-t1" name="Profile Update Test" line="8">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-11-08T19:02:39.940243" level="INFO">Opening browser 'chrome' to base url 'http://127.0.0.1:5000//'.</msg>
-<arg>${URL}/</arg>
+<msg time="2024-11-08T19:26:41.005743" level="INFO">Opening browser 'chrome' to base url 'http://127.0.0.1:5000/'.</msg>
+<arg>${URL}</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-11-08T19:02:39.940243" elapsed="13.386407"/>
+<status status="PASS" start="2024-11-08T19:26:41.005743" elapsed="3.954351"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-11-08T19:02:53.328651" level="INFO">Typing text 'testuser' into text field 'name=username'.</msg>
+<msg time="2024-11-08T19:26:44.962381" level="INFO">Typing text 'testuser' into text field 'name=username'.</msg>
 <arg>name=username</arg>
 <arg>testuser</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-11-08T19:02:53.327668" elapsed="0.462294"/>
+<status status="PASS" start="2024-11-08T19:26:44.961095" elapsed="0.276387"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-11-08T19:02:53.791053" level="INFO">Typing text 'password' into text field 'name=password'.</msg>
+<msg time="2024-11-08T19:26:45.238494" level="INFO">Typing text 'password' into text field 'name=password'.</msg>
 <arg>name=password</arg>
 <arg>password</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-11-08T19:02:53.789962" elapsed="0.265532"/>
+<status status="PASS" start="2024-11-08T19:26:45.237482" elapsed="0.240530"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2024-11-08T19:02:54.056514" level="INFO">Clicking button 'xpath=//input[@type='submit']'.</msg>
+<msg time="2024-11-08T19:26:45.478522" level="INFO">Clicking button 'xpath=//input[@type='submit']'.</msg>
 <arg>xpath=//input[@type='submit']</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2024-11-08T19:02:54.056514" elapsed="0.199914"/>
+<status status="PASS" start="2024-11-08T19:26:45.478522" elapsed="0.185891"/>
 </kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>Welcome, testuser!</arg>
-<arg>timeout=10</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2024-11-08T19:02:54.257442" elapsed="0.098133"/>
-</kw>
-<kw name="Go To" owner="SeleniumLibrary">
-<msg time="2024-11-08T19:02:54.356582" level="INFO">Opening url 'http://127.0.0.1:5000//add_employee'</msg>
-<arg>${URL}/add_employee</arg>
-<doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2024-11-08T19:02:54.356582" elapsed="0.029318"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>name=name</arg>
-<arg>timeout=10</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-11-08T19:02:54.390079" elapsed="0.178254"/>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-11-08T19:26:45.666412" level="INFO">Clicking link 'Profile'.</msg>
+<arg>Profile</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-08T19:26:45.665412" elapsed="1.549606"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-11-08T19:02:54.570355" level="INFO">Typing text 'John Doe' into text field 'name=name'.</msg>
-<arg>name=name</arg>
-<arg>John Doe</arg>
+<msg time="2024-11-08T19:26:47.215018" level="INFO">Typing text 'newtestuser' into text field 'name=username'.</msg>
+<arg>name=username</arg>
+<arg>newtestuser</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-11-08T19:02:54.569330" elapsed="0.457610"/>
+<status status="PASS" start="2024-11-08T19:26:47.215018" elapsed="0.196817"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-11-08T19:02:55.029445" level="INFO">Typing text 'Developer' into text field 'name=role'.</msg>
-<arg>name=role</arg>
-<arg>Developer</arg>
+<msg time="2024-11-08T19:26:47.412849" level="INFO">Typing text 'Jane' into text field 'name=first_name'.</msg>
+<arg>name=first_name</arg>
+<arg>Jane</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-11-08T19:02:55.028432" elapsed="0.290668"/>
+<status status="PASS" start="2024-11-08T19:26:47.412849" elapsed="0.168752"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-11-08T19:02:55.322118" level="INFO">Typing text '123456789' into text field 'name=phone'.</msg>
+<msg time="2024-11-08T19:26:47.582605" level="INFO">Typing text 'Smith' into text field 'name=last_name'.</msg>
+<arg>name=last_name</arg>
+<arg>Smith</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-08T19:26:47.582605" elapsed="0.198995"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-08T19:26:47.782862" level="INFO">Typing text '987-654-3210' into text field 'name=phone'.</msg>
 <arg>name=phone</arg>
-<arg>123456789</arg>
+<arg>987-654-3210</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-11-08T19:02:55.321114" elapsed="0.354646"/>
+<status status="PASS" start="2024-11-08T19:26:47.782862" elapsed="0.262260"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2024-11-08T19:02:55.676777" level="INFO">Clicking button 'xpath=//button[contains(text(), 'Add Employee')]'.</msg>
-<arg>xpath=//button[contains(text(), 'Add Employee')]</arg>
+<msg time="2024-11-08T19:26:48.046119" level="INFO">Clicking button 'xpath=//button[contains(text(), 'Update Profile')]'.</msg>
+<arg>xpath=//button[contains(text(), 'Update Profile')]</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2024-11-08T19:02:55.676777" elapsed="0.334416"/>
+<status status="PASS" start="2024-11-08T19:26:48.046119" elapsed="0.249928"/>
 </kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>Employee added successfully!</arg>
-<arg>timeout=10</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2024-11-08T19:02:56.011193" elapsed="0.074044"/>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-11-08T19:26:48.331491" level="INFO">Current page contains text 'Username updated successfully!'.</msg>
+<arg>Username updated successfully!</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-11-08T19:26:48.296047" elapsed="0.035444"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2024-11-08T19:02:56.086255" elapsed="2.534418"/>
+<status status="PASS" start="2024-11-08T19:26:48.332512" elapsed="3.449655"/>
 </kw>
-<doc>Test adding a new employee</doc>
-<status status="PASS" start="2024-11-08T19:02:39.937652" elapsed="18.683021"/>
+<doc>Test updating the user profile</doc>
+<status status="PASS" start="2024-11-08T19:26:41.003388" elapsed="10.778779"/>
 </test>
-<test id="s1-t2" name="View Employee List Test" line="25">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-11-08T19:02:58.624718" level="INFO">Opening browser 'chrome' to base url 'http://127.0.0.1:5000//'.</msg>
-<arg>${URL}/</arg>
-<arg>chrome</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-11-08T19:02:58.624718" elapsed="4.634233"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-11-08T19:03:03.260954" level="INFO">Typing text 'testuser' into text field 'name=username'.</msg>
-<arg>name=username</arg>
-<arg>testuser</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-11-08T19:03:03.259952" elapsed="0.516823"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-11-08T19:03:03.778794" level="INFO">Typing text 'password' into text field 'name=password'.</msg>
-<arg>name=password</arg>
-<arg>password</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-11-08T19:03:03.777809" elapsed="0.358824"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2024-11-08T19:03:04.137644" level="INFO">Clicking button 'xpath=//input[@type='submit']'.</msg>
-<arg>xpath=//input[@type='submit']</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2024-11-08T19:03:04.137644" elapsed="0.346962"/>
-</kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>Welcome, testuser!</arg>
-<arg>timeout=10</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2024-11-08T19:03:04.490146" elapsed="0.035312"/>
-</kw>
-<kw name="Go To" owner="SeleniumLibrary">
-<msg time="2024-11-08T19:03:04.528222" level="INFO">Opening url 'http://127.0.0.1:5000//employee_list'</msg>
-<arg>${URL}/employee_list</arg>
-<doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2024-11-08T19:03:04.528222" elapsed="0.097542"/>
-</kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>Name</arg>
-<arg>timeout=10</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2024-11-08T19:03:04.640903" elapsed="0.027916"/>
-</kw>
-<kw name="Page Should Contain" owner="SeleniumLibrary">
-<msg time="2024-11-08T19:03:04.690968" level="INFO">Current page contains text 'Name'.</msg>
-<arg>Name</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<status status="PASS" start="2024-11-08T19:03:04.669820" elapsed="0.021148"/>
-</kw>
-<kw name="Page Should Contain" owner="SeleniumLibrary">
-<msg time="2024-11-08T19:03:04.724241" level="INFO">Current page contains text 'Role'.</msg>
-<arg>Role</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<status status="PASS" start="2024-11-08T19:03:04.692481" elapsed="0.031760"/>
-</kw>
-<kw name="Page Should Contain" owner="SeleniumLibrary">
-<msg time="2024-11-08T19:03:04.760016" level="INFO">Current page contains text 'Phone'.</msg>
-<arg>Phone</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<status status="PASS" start="2024-11-08T19:03:04.726252" elapsed="0.033764"/>
-</kw>
-<kw name="Close Browser" owner="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2024-11-08T19:03:04.762224" elapsed="3.391480"/>
-</kw>
-<doc>Test viewing the employee list</doc>
-<status status="PASS" start="2024-11-08T19:02:58.623708" elapsed="9.529996"/>
-</test>
-<status status="PASS" start="2024-11-08T19:02:39.204148" elapsed="28.951579"/>
+<status status="PASS" start="2024-11-08T19:26:40.340768" elapsed="11.442398"/>
 </suite>
 <statistics>
 <total>
-<stat pass="2" fail="0" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="2" fail="0" skip="0" id="s1" name="Api Tests">Api Tests</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Profile">Profile</stat>
 </suite>
 </statistics>
 <errors>

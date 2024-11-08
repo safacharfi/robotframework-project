@@ -66,7 +66,14 @@ def employee_list():
     if 'username' not in session:
         return redirect(url_for('home'))
     
-    return render_template('employee_list.html', employees=employees)
+    # Count employees by role
+    role_counts = {}
+    for employee in employees:
+        role = employee['role']
+        role_counts[role] = role_counts.get(role, 0) + 1
+    
+    return render_template('employee_list.html', employees=employees, role_counts=role_counts)
+
 
 @app.route('/filter_employees', methods=['POST'])
 def filter_employees():
