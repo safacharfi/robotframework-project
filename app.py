@@ -6,10 +6,11 @@ app.secret_key = 'your_secret_key'
 # Dummy user data and notes storage
 users = {
     'testuser': {
+        'username': 'safacharfi',  # Corrected: added the comma
         'password': 'password',
-        'first_name': 'John',
-        'last_name': 'Doe',
-        'phone': '123-456-7890',
+        'first_name': 'Safa',
+        'last_name': 'Charfi',
+        'phone': '53998571',
         'role': 'Admin'
     }
 }
@@ -18,23 +19,24 @@ notes = {}
 @app.route('/')
 def home():
     return render_template('login.html')
+
 @app.route('/settings')
 def settings():
     return render_template('settings.html')
 
-
+# Login route remains unchanged
 @app.route('/login', methods=['POST'])
 def login():
     username = request.form['username']
     password = request.form['password']
-    user = users.get(username)
+    user = users.get(username)  # This retrieves the user data based on the original username
     if user and user['password'] == password:
-        session['username'] = username
+        session['username'] = username  # Store the original username
         return redirect(url_for('dashboard'))
     else:
         flash('Invalid credentials')
         return redirect(url_for('home'))
-    
+
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():
     if 'username' not in session:
@@ -107,7 +109,6 @@ def edit_note(note_index):
             notes[session['username']][note_index] = new_content
             flash('Note updated successfully!')
         return redirect(url_for('dashboard'))
-    
     
     note_to_edit = notes[session['username']][note_index] if session['username'] in notes and note_index < len(notes[session['username']]) else ""
     return render_template('edit_note.html', note=note_to_edit, note_index=note_index)
