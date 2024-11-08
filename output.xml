@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.12.0 on win32)" generated="2024-11-08T18:00:32.452955" rpa="false" schemaversion="5">
+<suite id="s1" name="Api Tests" source="C:\Users\safac\OneDrive\Desktop\flaskapp\tests\api_tests.robot">
+<test id="s1-t1" name="Valid Login Test" line="9">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:00:33.532952" level="INFO">Opening browser 'chrome' to base url 'http://127.0.0.1:5000/'.</msg>
+<arg>${URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-11-08T18:00:33.531552" elapsed="35.184787"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:01:08.724900" level="INFO">Typing text 'testuser' into text field 'name=username'.</msg>
+<arg>name=username</arg>
+<arg>testuser</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-08T18:01:08.723853" elapsed="0.515370"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:01:09.240225" level="INFO">Typing text 'password' into text field 'name=password'.</msg>
+<arg>name=password</arg>
+<arg>password</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-08T18:01:09.239223" elapsed="0.255145"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:01:09.495262" level="INFO">Clicking button 'xpath=//input[@type='submit']'.</msg>
+<arg>xpath=//input[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-08T18:01:09.495262" elapsed="0.426034"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:01:10.075457" level="INFO">Current page contains text 'Welcome, testuser!'.</msg>
+<arg>Welcome, testuser!</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-11-08T18:01:09.922315" elapsed="0.154157"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-11-08T18:01:10.077476" elapsed="2.752127"/>
+</kw>
+<doc>Test valid login credentials</doc>
+<status status="PASS" start="2024-11-08T18:00:33.529547" elapsed="39.300056"/>
+</test>
+<test id="s1-t2" name="Invalid Login Test" line="18">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:01:12.833121" level="INFO">Opening browser 'chrome' to base url 'http://127.0.0.1:5000/'.</msg>
+<arg>${URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-11-08T18:01:12.832107" elapsed="5.112831"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:01:17.970328" level="INFO">Typing text 'wronguser' into text field 'name=username'.</msg>
+<arg>name=username</arg>
+<arg>wronguser</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-08T18:01:17.969332" elapsed="0.838184"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:01:18.808517" level="INFO">Typing text 'wrongpassword' into text field 'name=password'.</msg>
+<arg>name=password</arg>
+<arg>wrongpassword</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-08T18:01:18.808517" elapsed="0.338983"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:01:19.148497" level="INFO">Clicking button 'xpath=//input[@type='submit']'.</msg>
+<arg>xpath=//input[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-08T18:01:19.147500" elapsed="0.343095"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:01:19.551125" level="INFO">Current page contains text 'Invalid credentials'.</msg>
+<arg>Invalid credentials</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-11-08T18:01:19.491603" elapsed="0.060721"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-11-08T18:01:19.553340" elapsed="2.876158"/>
+</kw>
+<doc>Test invalid login credentials</doc>
+<status status="PASS" start="2024-11-08T18:01:12.830851" elapsed="9.600650"/>
+</test>
+<test id="s1-t3" name="Dashboard Access Test" line="27">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:01:22.440537" level="INFO">Opening browser 'chrome' to base url 'http://127.0.0.1:5000/'.</msg>
+<arg>${URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-11-08T18:01:22.440537" elapsed="4.638573"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:01:27.081110" level="INFO">Typing text 'testuser' into text field 'name=username'.</msg>
+<arg>name=username</arg>
+<arg>testuser</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-08T18:01:27.081110" elapsed="0.421947"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:01:27.504514" level="INFO">Typing text 'password' into text field 'name=password'.</msg>
+<arg>name=password</arg>
+<arg>password</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-08T18:01:27.504002" elapsed="0.381487"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:01:27.886490" level="INFO">Clicking button 'xpath=//input[@type='submit']'.</msg>
+<arg>xpath=//input[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-08T18:01:27.886490" elapsed="0.618417"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:01:28.618510" level="INFO">Current page contains text 'Welcome, testuser!'.</msg>
+<arg>Welcome, testuser!</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-11-08T18:01:28.505919" elapsed="0.113590"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:01:28.671892" level="INFO">Current page contains text 'This is your dashboard.'.</msg>
+<arg>This is your dashboard.</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-11-08T18:01:28.620509" elapsed="0.052390"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:01:28.675979" level="INFO">Clicking link 'Logout'.</msg>
+<arg>Logout</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-08T18:01:28.675408" elapsed="0.266628"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-11-08T18:01:28.943045" elapsed="2.759921"/>
+</kw>
+<doc>Test access to dashboard after valid login</doc>
+<status status="PASS" start="2024-11-08T18:01:22.439160" elapsed="9.263806"/>
+</test>
+<test id="s1-t4" name="Logout Test" line="38">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:01:31.706612" level="INFO">Opening browser 'chrome' to base url 'http://127.0.0.1:5000/'.</msg>
+<arg>${URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-11-08T18:01:31.706612" elapsed="4.958004"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:01:36.670347" level="INFO">Typing text 'testuser' into text field 'name=username'.</msg>
+<arg>name=username</arg>
+<arg>testuser</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-08T18:01:36.668961" elapsed="0.560645"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:01:37.232118" level="INFO">Typing text 'password' into text field 'name=password'.</msg>
+<arg>name=password</arg>
+<arg>password</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-08T18:01:37.232118" elapsed="0.321012"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:01:37.554144" level="INFO">Clicking button 'xpath=//input[@type='submit']'.</msg>
+<arg>xpath=//input[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-08T18:01:37.553130" elapsed="0.202756"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:01:37.759180" level="INFO">Clicking link 'Logout'.</msg>
+<arg>Logout</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-08T18:01:37.759180" elapsed="0.275661"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:01:38.088777" level="INFO">Current page contains text 'Login'.</msg>
+<arg>Login</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-11-08T18:01:38.036166" elapsed="0.053625"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-11-08T18:01:38.092000" elapsed="2.904916"/>
+</kw>
+<doc>Test logout functionality</doc>
+<status status="PASS" start="2024-11-08T18:01:31.705465" elapsed="9.292456"/>
+</test>
+<test id="s1-t5" name="Add Note Test" line="48">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:01:41.000936" level="INFO">Opening browser 'chrome' to base url 'http://127.0.0.1:5000/'.</msg>
+<arg>${URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-11-08T18:01:41.000936" elapsed="4.177621"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:01:45.185313" level="INFO">Typing text 'testuser' into text field 'name=username'.</msg>
+<arg>name=username</arg>
+<arg>testuser</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-08T18:01:45.183995" elapsed="0.461011"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:01:45.646111" level="INFO">Typing text 'password' into text field 'name=password'.</msg>
+<arg>name=password</arg>
+<arg>password</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-08T18:01:45.645557" elapsed="0.359891"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:01:46.006499" level="INFO">Clicking button 'xpath=//input[@type='submit']'.</msg>
+<arg>xpath=//input[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-08T18:01:46.006499" elapsed="0.252613"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:01:46.260117" level="INFO">Typing text 'My first note' into text field 'name=note'.</msg>
+<arg>name=note</arg>
+<arg>My first note</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-08T18:01:46.260117" elapsed="0.386602"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:01:46.648718" level="INFO">Clicking button 'xpath=//input[@type='submit']'.</msg>
+<arg>xpath=//input[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-08T18:01:46.647718" elapsed="0.440698"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:01:47.260417" level="INFO">Current page contains text 'Note added successfully!'.</msg>
+<arg>Note added successfully!</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-11-08T18:01:47.089528" elapsed="0.170889"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:01:47.490233" level="INFO">Current page contains text 'My first note'.</msg>
+<arg>My first note</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-11-08T18:01:47.263072" elapsed="0.227161"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-11-08T18:01:47.491243" elapsed="3.016463"/>
+</kw>
+<doc>Test adding a note</doc>
+<status status="PASS" start="2024-11-08T18:01:40.999920" elapsed="9.509067"/>
+</test>
+<test id="s1-t6" name="Delete Note Test" line="60">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:01:50.512940" level="INFO">Opening browser 'chrome' to base url 'http://127.0.0.1:5000/'.</msg>
+<arg>${URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-11-08T18:01:50.512940" elapsed="4.901174"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:01:55.430822" level="INFO">Typing text 'testuser' into text field 'name=username'.</msg>
+<arg>name=username</arg>
+<arg>testuser</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-08T18:01:55.429823" elapsed="0.443225"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:01:55.874573" level="INFO">Typing text 'password' into text field 'name=password'.</msg>
+<arg>name=password</arg>
+<arg>password</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-08T18:01:55.874060" elapsed="0.292544"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:01:56.167624" level="INFO">Clicking button 'xpath=//input[@type='submit']'.</msg>
+<arg>xpath=//input[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-08T18:01:56.167624" elapsed="0.258304"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:01:56.426927" level="INFO">Typing text 'Note to be deleted' into text field 'name=note'.</msg>
+<arg>name=note</arg>
+<arg>Note to be deleted</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-08T18:01:56.426927" elapsed="0.372073"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:01:56.801000" level="INFO">Clicking button 'xpath=//input[@type='submit']'.</msg>
+<arg>xpath=//input[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-08T18:01:56.800002" elapsed="0.275309"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:01:57.088962" level="INFO">Clicking button 'xpath=//button[contains(text(), 'Delete')][last()]'.</msg>
+<arg>xpath=//button[contains(text(), 'Delete')][last()]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-08T18:01:57.088962" elapsed="0.270750"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:01:57.423779" level="INFO">Current page contains text 'Note deleted successfully!'.</msg>
+<arg>Note deleted successfully!</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-11-08T18:01:57.359712" elapsed="0.064067"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-11-08T18:01:57.424793" elapsed="2.726570"/>
+</kw>
+<doc>Test deleting a note</doc>
+<status status="PASS" start="2024-11-08T18:01:50.511332" elapsed="9.644594"/>
+</test>
+<test id="s1-t7" name="Edit Note Test" line="73">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:02:00.160416" level="INFO">Opening browser 'chrome' to base url 'http://127.0.0.1:5000/'.</msg>
+<arg>${URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-11-08T18:02:00.160416" elapsed="10.153766"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:02:10.316302" level="INFO">Typing text 'testuser' into text field 'name=username'.</msg>
+<arg>name=username</arg>
+<arg>testuser</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-08T18:02:10.315286" elapsed="0.296736"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:02:10.613038" level="INFO">Typing text 'password' into text field 'name=password'.</msg>
+<arg>name=password</arg>
+<arg>password</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-08T18:02:10.612022" elapsed="0.201900"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:02:10.816655" level="INFO">Clicking button 'xpath=//input[@type='submit']'.</msg>
+<arg>xpath=//input[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-08T18:02:10.816655" elapsed="0.208835"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:02:11.026493" level="INFO">Typing text 'My note to edit' into text field 'name=note'.</msg>
+<arg>name=note</arg>
+<arg>My note to edit</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-08T18:02:11.026493" elapsed="2.010449"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:02:13.038446" level="INFO">Clicking button 'xpath=//input[@type='submit']'.</msg>
+<arg>xpath=//input[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-08T18:02:13.036942" elapsed="0.168253"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:02:13.206210" level="INFO">Clicking link 'Edit'.</msg>
+<arg>Edit</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-08T18:02:13.205639" elapsed="0.363219"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:02:13.570113" level="INFO">Typing text 'My updated note' into text field 'name=note'.</msg>
+<arg>name=note</arg>
+<arg>My updated note</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-08T18:02:13.568858" elapsed="0.278391"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:02:13.848593" level="INFO">Clicking button 'xpath=//input[@type='submit']'.</msg>
+<arg>xpath=//input[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-08T18:02:13.847249" elapsed="0.141964"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:02:14.060224" level="INFO">Current page contains text 'Note updated successfully!'.</msg>
+<arg>Note updated successfully!</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-11-08T18:02:13.991268" elapsed="0.068956"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:02:14.091259" level="INFO">Current page contains text 'My updated note'.</msg>
+<arg>My updated note</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-11-08T18:02:14.061778" elapsed="0.029481"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-11-08T18:02:14.092259" elapsed="2.471713"/>
+</kw>
+<doc>Test editing a note</doc>
+<status status="PASS" start="2024-11-08T18:02:00.158402" elapsed="16.405570"/>
+</test>
+<test id="s1-t8" name="Profile Update Test" line="88">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:02:16.568625" level="INFO">Opening browser 'chrome' to base url 'http://127.0.0.1:5000/'.</msg>
+<arg>${URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-11-08T18:02:16.568625" elapsed="4.015105"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:02:20.584240" level="INFO">Typing text 'testuser' into text field 'name=username'.</msg>
+<arg>name=username</arg>
+<arg>testuser</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-08T18:02:20.584240" elapsed="0.322545"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:02:20.907816" level="INFO">Typing text 'password' into text field 'name=password'.</msg>
+<arg>name=password</arg>
+<arg>password</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-08T18:02:20.906785" elapsed="0.246096"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:02:21.153938" level="INFO">Clicking button 'xpath=//input[@type='submit']'.</msg>
+<arg>xpath=//input[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-08T18:02:21.153413" elapsed="0.228817"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:02:21.383742" level="INFO">Clicking link 'Profile'.</msg>
+<arg>Profile</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-08T18:02:21.383226" elapsed="0.282080"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:02:21.669910" level="INFO">Typing text 'newtestuser' into text field 'name=username'.</msg>
+<arg>name=username</arg>
+<arg>newtestuser</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-08T18:02:21.669910" elapsed="0.483905"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:02:22.154827" level="INFO">Typing text 'Jane' into text field 'name=first_name'.</msg>
+<arg>name=first_name</arg>
+<arg>Jane</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-08T18:02:22.154827" elapsed="0.289079"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:02:22.444923" level="INFO">Typing text 'Smith' into text field 'name=last_name'.</msg>
+<arg>name=last_name</arg>
+<arg>Smith</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-08T18:02:22.444923" elapsed="0.233527"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:02:22.679451" level="INFO">Typing text '987-654-3210' into text field 'name=phone'.</msg>
+<arg>name=phone</arg>
+<arg>987-654-3210</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-08T18:02:22.679451" elapsed="0.246067"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:02:22.927785" level="INFO">Clicking button 'xpath=//input[@type='submit']'.</msg>
+<arg>xpath=//input[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-08T18:02:22.927785" elapsed="0.164020"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-11-08T18:02:23.125769" level="INFO">Current page contains text 'Username updated successfully!'.</msg>
+<arg>Username updated successfully!</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-11-08T18:02:23.093314" elapsed="0.032455"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-11-08T18:02:23.127115" elapsed="2.453929"/>
+</kw>
+<doc>Test updating the user profile</doc>
+<status status="PASS" start="2024-11-08T18:02:16.567404" elapsed="9.014640"/>
+</test>
+<status status="PASS" start="2024-11-08T18:00:32.456355" elapsed="113.145129"/>
+</suite>
+<statistics>
+<total>
+<stat pass="8" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="8" fail="0" skip="0" id="s1" name="Api Tests">Api Tests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
