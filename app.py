@@ -3,10 +3,18 @@ from flask import Flask, render_template, request, redirect, url_for, flash, ses
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
 
-# Dummy user data and notes storage
+# User data
 users = {
     'testuser': {
-        'username': 'safacharfi',  # Corrected: added the comma
+        'username': 'safacharfi',
+        'password': 'password',
+        'first_name': 'Safa',
+        'last_name': 'Charfi',
+        'phone': '53998571',
+        'role': 'Admin'
+    },
+    'safacharfi1': {
+        'username': 'safacharfi1',
         'password': 'password',
         'first_name': 'Safa',
         'last_name': 'Charfi',
@@ -14,6 +22,13 @@ users = {
         'role': 'Admin'
     }
 }
+
+# Global employee list
+employees = [
+    {'name': 'John Doe', 'role': 'Manager', 'phone': '123456789'},
+    {'name': 'Jane Smith', 'role': 'Developer', 'phone': '987654321'},
+    # Add more employees as needed
+]
 notes = {}
 
 @app.route('/')
@@ -23,6 +38,46 @@ def home():
 @app.route('/settings')
 def settings():
     return render_template('settings.html')
+
+@app.route('/add_employee', methods=['GET', 'POST'])
+def add_employee():
+    if 'username' not in session or users[session['username']]['role'] != 'Admin':
+        return redirect(url_for('home'))
+
+    if request.method == 'POST':
+        employee_name = request.form['name']
+        employee_role = request.form['role']
+        employee_phone = request.form['phone']
+        
+        new_employee = {
+            'name': employee_name,
+            'role': employee_role,
+            'phone': employee_phone
+        }
+        
+        employees.append(new_employee)
+        flash('Employee added successfully!')
+        return redirect(url_for('employee_list'))
+
+    return render_template('add_employee.html')
+
+@app.route('/employee_list')
+def employee_list():
+    if 'username' not in session:
+        return redirect(url_for('home'))
+    
+    return render_template('employee_list.html', employees=employees)
+
+@app.route('/filter_employees', methods=['POST'])
+def filter_employees():
+    if 'username' not in session:
+        return redirect(url_for('home'))
+
+    role_filter = request.form['role_filter']
+    # Filter employees based on role
+    filtered_employees = [emp for emp in employees if emp['role'] == role_filter or role_filter == ""]
+    
+    return render_template('employee_list.html', employees=filtered_employees)
 
 # Login route remains unchanged
 @app.route('/login', methods=['POST'])

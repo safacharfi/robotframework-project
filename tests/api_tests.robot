@@ -98,3 +98,33 @@ Profile Update Test
     Click Button    xpath=//button[contains(text(), 'Update Profile')]  # Updated this line
     Page Should Contain    Username updated successfully!
     Close Browser
+
+Add Employee Test
+    [Documentation]    Test adding a new employee
+    Open Browser    ${URL}/    chrome
+    Input Text    name=username    testuser    # Login
+    Input Text    name=password    password
+    Click Button    xpath=//input[@type='submit']
+    Wait Until Page Contains    Welcome, testuser!    timeout=10
+    Go To    ${URL}/add_employee    # Navigate to add employee page
+    Wait Until Element Is Visible    name=name    timeout=10
+    Input Text    name=name    John Doe
+    Input Text    name=role    Developer
+    Input Text    name=phone    123456789
+    Click Button    xpath=//button[contains(text(), 'Add Employee')]
+    Wait Until Page Contains    Employee added successfully!    timeout=10  # Check for the success message on employee list page
+    Close Browser
+
+View Employee List Test
+    [Documentation]    Test viewing the employee list
+    Open Browser    ${URL}/    chrome
+    Input Text    name=username    testuser    # Login
+    Input Text    name=password    password
+    Click Button    xpath=//input[@type='submit']
+    Wait Until Page Contains    Welcome, testuser!    timeout=10
+    Go To    ${URL}/employee_list    # Navigate to employee list
+    Wait Until Page Contains    Name    timeout=10
+    Page Should Contain    Name
+    Page Should Contain    Role
+    Page Should Contain    Phone
+    Close Browser

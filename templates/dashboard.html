@@ -139,19 +139,21 @@
     </style>
 </head>
 <body>
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <h2>Admin Dashboard</h2>
-        <nav>
-            <a href="{{ url_for('profile') }}">Profile</a>
-            <a href="{{ url_for('dashboard') }}">Dashboard</a>
-            <a href="{{ url_for('settings') }}">Settings</a>
-            <a href="{{ url_for('logout') }}">Logout</a>
-        </nav>
-        <footer>
-            <p>&copy; 2023 Your Company</p>
-        </footer>
-    </div>
+ <!-- Sidebar -->
+<div class="sidebar">
+    <h2>Admin Dashboard</h2>
+    <nav>
+        <a href="{{ url_for('profile') }}">Profile</a>
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('add_employee') }}">Add Employee</a>  <!-- New Link -->
+        <a href="{{ url_for('employee_list') }}">Employee List</a>  <!-- New Link -->
+        <a href="{{ url_for('settings') }}">Settings</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </nav>
+    <footer>
+        <p>&copy; 2023 Your Company</p>
+    </footer>
+</div>
 
     <!-- Main Content -->
     <div class="main-content">
