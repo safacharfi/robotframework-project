@@ -1,97 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.1.1 (Python 3.12.0 on win32)" generated="2024-11-08T19:26:40.337441" rpa="false" schemaversion="5">
+<robot generator="Robot 7.1.1 (Python 3.12.0 on win32)" generated="2024-11-08T19:35:54.882762" rpa="false" schemaversion="5">
 <suite id="s1" name="Profile" source="C:\Users\safac\OneDrive\Desktop\flaskapp\tests\profile.robot">
-<test id="s1-t1" name="Profile Update Test" line="8">
+<test id="s1-t1" name="Profile Update Incomplete Test" line="10">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-11-08T19:26:41.005743" level="INFO">Opening browser 'chrome' to base url 'http://127.0.0.1:5000/'.</msg>
+<msg time="2024-11-08T19:35:55.673460" level="INFO">Opening browser 'chrome' to base url 'http://127.0.0.1:5000/'.</msg>
 <arg>${URL}</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-11-08T19:26:41.005743" elapsed="3.954351"/>
+<status status="PASS" start="2024-11-08T19:35:55.673460" elapsed="6.261037"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-11-08T19:26:44.962381" level="INFO">Typing text 'testuser' into text field 'name=username'.</msg>
+<msg time="2024-11-08T19:36:01.936553" level="INFO">Typing text 'testuser' into text field 'name=username'.</msg>
 <arg>name=username</arg>
 <arg>testuser</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-11-08T19:26:44.961095" elapsed="0.276387"/>
+<status status="PASS" start="2024-11-08T19:36:01.935015" elapsed="0.397696"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-11-08T19:26:45.238494" level="INFO">Typing text 'password' into text field 'name=password'.</msg>
+<msg time="2024-11-08T19:36:02.334712" level="INFO">Typing text 'password' into text field 'name=password'.</msg>
 <arg>name=password</arg>
 <arg>password</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-11-08T19:26:45.237482" elapsed="0.240530"/>
+<status status="PASS" start="2024-11-08T19:36:02.333709" elapsed="0.360140"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2024-11-08T19:26:45.478522" level="INFO">Clicking button 'xpath=//input[@type='submit']'.</msg>
+<msg time="2024-11-08T19:36:02.694863" level="INFO">Clicking button 'xpath=//input[@type='submit']'.</msg>
 <arg>xpath=//input[@type='submit']</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2024-11-08T19:26:45.478522" elapsed="0.185891"/>
+<status status="PASS" start="2024-11-08T19:36:02.693849" elapsed="0.236996"/>
 </kw>
 <kw name="Click Link" owner="SeleniumLibrary">
-<msg time="2024-11-08T19:26:45.666412" level="INFO">Clicking link 'Profile'.</msg>
+<msg time="2024-11-08T19:36:02.932081" level="INFO">Clicking link 'Profile'.</msg>
 <arg>Profile</arg>
 <doc>Clicks a link identified by ``locator``.</doc>
-<status status="PASS" start="2024-11-08T19:26:45.665412" elapsed="1.549606"/>
+<status status="PASS" start="2024-11-08T19:36:02.932081" elapsed="6.726108"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-11-08T19:26:47.215018" level="INFO">Typing text 'newtestuser' into text field 'name=username'.</msg>
-<arg>name=username</arg>
-<arg>newtestuser</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-11-08T19:26:47.215018" elapsed="0.196817"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-11-08T19:26:47.412849" level="INFO">Typing text 'Jane' into text field 'name=first_name'.</msg>
+<msg time="2024-11-08T19:36:09.659698" level="FAIL">Keyword 'SeleniumLibrary.Input Text' expected 2 to 3 arguments, got 1.</msg>
 <arg>name=first_name</arg>
-<arg>Jane</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-11-08T19:26:47.412849" elapsed="0.168752"/>
+<status status="FAIL" start="2024-11-08T19:36:09.659190" elapsed="0.000508">Keyword 'SeleniumLibrary.Input Text' expected 2 to 3 arguments, got 1.</status>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-11-08T19:26:47.582605" level="INFO">Typing text 'Smith' into text field 'name=last_name'.</msg>
 <arg>name=last_name</arg>
 <arg>Smith</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-11-08T19:26:47.582605" elapsed="0.198995"/>
+<status status="NOT RUN" start="2024-11-08T19:36:09.660206" elapsed="0.000000"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-11-08T19:26:47.782862" level="INFO">Typing text '987-654-3210' into text field 'name=phone'.</msg>
 <arg>name=phone</arg>
 <arg>987-654-3210</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-11-08T19:26:47.782862" elapsed="0.262260"/>
+<status status="NOT RUN" start="2024-11-08T19:36:09.661217" elapsed="0.000000"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2024-11-08T19:26:48.046119" level="INFO">Clicking button 'xpath=//button[contains(text(), 'Update Profile')]'.</msg>
 <arg>xpath=//button[contains(text(), 'Update Profile')]</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2024-11-08T19:26:48.046119" elapsed="0.249928"/>
+<status status="NOT RUN" start="2024-11-08T19:36:09.662227" elapsed="0.000000"/>
 </kw>
 <kw name="Page Should Contain" owner="SeleniumLibrary">
-<msg time="2024-11-08T19:26:48.331491" level="INFO">Current page contains text 'Username updated successfully!'.</msg>
-<arg>Username updated successfully!</arg>
+<arg>Please fill out this field.</arg>
 <doc>Verifies that current page contains ``text``.</doc>
-<status status="PASS" start="2024-11-08T19:26:48.296047" elapsed="0.035444"/>
+<status status="NOT RUN" start="2024-11-08T19:36:09.664227" elapsed="0.000000"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2024-11-08T19:26:48.332512" elapsed="3.449655"/>
+<status status="NOT RUN" start="2024-11-08T19:36:09.666226" elapsed="0.000000"/>
 </kw>
-<doc>Test updating the user profile</doc>
-<status status="PASS" start="2024-11-08T19:26:41.003388" elapsed="10.778779"/>
+<doc>Test updating the user profile with missing information</doc>
+<status status="FAIL" start="2024-11-08T19:35:55.671414" elapsed="13.995814">Keyword 'SeleniumLibrary.Input Text' expected 2 to 3 arguments, got 1.</status>
 </test>
-<status status="PASS" start="2024-11-08T19:26:40.340768" elapsed="11.442398"/>
+<status status="FAIL" start="2024-11-08T19:35:54.887766" elapsed="14.783495"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Profile">Profile</stat>
+<stat pass="0" fail="1" skip="0" id="s1" name="Profile">Profile</stat>
 </suite>
 </statistics>
 <errors>

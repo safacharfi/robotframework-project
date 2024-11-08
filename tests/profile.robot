@@ -16,6 +16,6 @@ Profile Update Test
     Input Text    name=first_name    Jane
     Input Text    name=last_name    Smith
     Input Text    name=phone    987-654-3210
-    Click Button    xpath=//button[contains(text(), 'Update Profile')]  # Updated this line
+    Click Button    xpath=//button[contains(text(), 'Update Profile')]  # Update profile
     Page Should Contain    Username updated successfully!
     Close Browser
