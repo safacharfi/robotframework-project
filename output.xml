@@ -1,85 +1,253 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.1.1 (Python 3.12.0 on win32)" generated="2024-11-08T19:35:54.882762" rpa="false" schemaversion="5">
-<suite id="s1" name="Profile" source="C:\Users\safac\OneDrive\Desktop\flaskapp\tests\profile.robot">
-<test id="s1-t1" name="Profile Update Incomplete Test" line="10">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-11-08T19:35:55.673460" level="INFO">Opening browser 'chrome' to base url 'http://127.0.0.1:5000/'.</msg>
-<arg>${URL}</arg>
-<arg>chrome</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-11-08T19:35:55.673460" elapsed="6.261037"/>
+<robot generator="Robot 7.1.1 (Python 3.12.0 on win32)" generated="2024-11-08T20:12:10.276365" rpa="false" schemaversion="5">
+<suite id="s1" name="Financial test" source="C:\Users\safac\OneDrive\Desktop\flaskapp\tests\Financial_test.robot">
+<test id="s1-t1" name="Test Correct Financial Calculation" line="8">
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2024-11-08T20:12:10.598641" level="INFO">GET Request : url=http://127.0.0.1:5000/get_financial_data 
+ path_url=/get_financial_data 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2024-11-08T20:12:10.598641" level="INFO">GET Response : url=http://127.0.0.1:5000/get_financial_data 
+ status=200, reason=OK 
+ headers={'Content-Type': 'application/json', 'Content-Length': '314', 'Server': 'Werkzeug/2.0.1 Python/3.12.0', 'Date': 'Fri, 08 Nov 2024 19:12:10 GMT'} 
+ body={
+  "net_profit": 20000, 
+  "quarterly_expenses": [
+    20000, 
+    18000, 
+    21000, 
+    21000
+  ], 
+  "quarterly_net_profit": [
+    5000, 
+    12000, 
+    1000, 
+    2000
+  ], 
+  "quarterly_revenue": [
+    25000, 
+    30000, 
+    22000, 
+    23000
+  ], 
+  "total_expenses": 80000, 
+  "total_revenue": 100000
+}
+ 
+ </msg>
+<msg time="2024-11-08T20:12:10.598641" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>${BASE_URL}/get_financial_data</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2024-11-08T20:12:10.585482" elapsed="0.013159"/>
 </kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-11-08T19:36:01.936553" level="INFO">Typing text 'testuser' into text field 'name=username'.</msg>
-<arg>name=username</arg>
-<arg>testuser</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-11-08T19:36:01.935015" elapsed="0.397696"/>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2024-11-08T20:12:10.601024" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.json()['total_revenue']}</arg>
+<arg>100000</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2024-11-08T20:12:10.600008" elapsed="0.001016"/>
 </kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-11-08T19:36:02.334712" level="INFO">Typing text 'password' into text field 'name=password'.</msg>
-<arg>name=password</arg>
-<arg>password</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-11-08T19:36:02.333709" elapsed="0.360140"/>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2024-11-08T20:12:10.603023" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.json()['total_expenses']}</arg>
+<arg>80000</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2024-11-08T20:12:10.602022" elapsed="0.001001"/>
 </kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2024-11-08T19:36:02.694863" level="INFO">Clicking button 'xpath=//input[@type='submit']'.</msg>
-<arg>xpath=//input[@type='submit']</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2024-11-08T19:36:02.693849" elapsed="0.236996"/>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-11-08T20:12:10.604025" level="INFO">${expected_balance} = 20000</msg>
+<var>${expected_balance}</var>
+<arg>100000 - 80000</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-11-08T20:12:10.604025" elapsed="0.000000"/>
 </kw>
-<kw name="Click Link" owner="SeleniumLibrary">
-<msg time="2024-11-08T19:36:02.932081" level="INFO">Clicking link 'Profile'.</msg>
-<arg>Profile</arg>
-<doc>Clicks a link identified by ``locator``.</doc>
-<status status="PASS" start="2024-11-08T19:36:02.932081" elapsed="6.726108"/>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<arg>${expected_balance}</arg>
+<arg>${response.json()['net_profit']}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2024-11-08T20:12:10.605031" elapsed="0.000990"/>
 </kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-11-08T19:36:09.659698" level="FAIL">Keyword 'SeleniumLibrary.Input Text' expected 2 to 3 arguments, got 1.</msg>
-<arg>name=first_name</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="FAIL" start="2024-11-08T19:36:09.659190" elapsed="0.000508">Keyword 'SeleniumLibrary.Input Text' expected 2 to 3 arguments, got 1.</status>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<arg>name=last_name</arg>
-<arg>Smith</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2024-11-08T19:36:09.660206" elapsed="0.000000"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<arg>name=phone</arg>
-<arg>987-654-3210</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2024-11-08T19:36:09.661217" elapsed="0.000000"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<arg>xpath=//button[contains(text(), 'Update Profile')]</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="NOT RUN" start="2024-11-08T19:36:09.662227" elapsed="0.000000"/>
-</kw>
-<kw name="Page Should Contain" owner="SeleniumLibrary">
-<arg>Please fill out this field.</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<status status="NOT RUN" start="2024-11-08T19:36:09.664227" elapsed="0.000000"/>
-</kw>
-<kw name="Close Browser" owner="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="NOT RUN" start="2024-11-08T19:36:09.666226" elapsed="0.000000"/>
-</kw>
-<doc>Test updating the user profile with missing information</doc>
-<status status="FAIL" start="2024-11-08T19:35:55.671414" elapsed="13.995814">Keyword 'SeleniumLibrary.Input Text' expected 2 to 3 arguments, got 1.</status>
+<doc>Test the financial calculation function with correct values</doc>
+<status status="PASS" start="2024-11-08T20:12:10.583479" elapsed="0.023050"/>
 </test>
-<status status="FAIL" start="2024-11-08T19:35:54.887766" elapsed="14.783495"/>
+<test id="s1-t2" name="Test Incorrect Financial Calculation" line="16">
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2024-11-08T20:12:10.619445" level="INFO">GET Request : url=http://127.0.0.1:5000/get_financial_data 
+ path_url=/get_financial_data 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2024-11-08T20:12:10.619445" level="INFO">GET Response : url=http://127.0.0.1:5000/get_financial_data 
+ status=200, reason=OK 
+ headers={'Content-Type': 'application/json', 'Content-Length': '314', 'Server': 'Werkzeug/2.0.1 Python/3.12.0', 'Date': 'Fri, 08 Nov 2024 19:12:10 GMT'} 
+ body={
+  "net_profit": 20000, 
+  "quarterly_expenses": [
+    20000, 
+    18000, 
+    21000, 
+    21000
+  ], 
+  "quarterly_net_profit": [
+    5000, 
+    12000, 
+    1000, 
+    2000
+  ], 
+  "quarterly_revenue": [
+    25000, 
+    30000, 
+    22000, 
+    23000
+  ], 
+  "total_expenses": 80000, 
+  "total_revenue": 100000
+}
+ 
+ </msg>
+<msg time="2024-11-08T20:12:10.619445" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>${BASE_URL}/get_financial_data</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2024-11-08T20:12:10.609413" elapsed="0.010032"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-11-08T20:12:10.620461" level="INFO">${expected_incorrect} = 800</msg>
+<var>${expected_incorrect}</var>
+<arg>800</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-11-08T20:12:10.620461" elapsed="0.000000"/>
+</kw>
+<kw name="Should Not Be Equal As Numbers" owner="BuiltIn">
+<msg time="2024-11-08T20:12:10.621458" level="INFO">Argument types are:
+&lt;class 'str'&gt;
+&lt;class 'int'&gt;</msg>
+<arg>${expected_incorrect}</arg>
+<arg>${response.json()['net_profit']}</arg>
+<doc>Fails if objects are equal after converting them to real numbers.</doc>
+<status status="PASS" start="2024-11-08T20:12:10.620461" elapsed="0.002004"/>
+</kw>
+<doc>Test the financial calculation function with incorrect expected values</doc>
+<status status="PASS" start="2024-11-08T20:12:10.608400" elapsed="0.014065"/>
+</test>
+<test id="s1-t3" name="Test Zero Values" line="22">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-11-08T20:12:10.628285" level="INFO">${earnings} = 0</msg>
+<var>${earnings}</var>
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-11-08T20:12:10.628285" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-11-08T20:12:10.629295" level="INFO">${expenses} = 0</msg>
+<var>${expenses}</var>
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-11-08T20:12:10.629295" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-11-08T20:12:10.630302" level="INFO">${expected_balance} = 0</msg>
+<var>${expected_balance}</var>
+<arg>${earnings} - ${expenses}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-11-08T20:12:10.630302" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2024-11-08T20:12:10.631296" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${expected_balance}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2024-11-08T20:12:10.631296" elapsed="0.000000"/>
+</kw>
+<doc>Test the financial calculation with zero earnings and expenses</doc>
+<status status="PASS" start="2024-11-08T20:12:10.624482" elapsed="0.007814"/>
+</test>
+<test id="s1-t4" name="Test Negative Earnings" line="29">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-11-08T20:12:10.635383" level="INFO">${earnings} = -500</msg>
+<var>${earnings}</var>
+<arg>-500</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-11-08T20:12:10.635383" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-11-08T20:12:10.636393" level="INFO">${expenses} = 1000</msg>
+<var>${expenses}</var>
+<arg>1000</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-11-08T20:12:10.636393" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-11-08T20:12:10.637412" level="INFO">${expected_balance} = -1500</msg>
+<var>${expected_balance}</var>
+<arg>${earnings} - ${expenses}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-11-08T20:12:10.637412" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2024-11-08T20:12:10.638701" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${expected_balance}</arg>
+<arg>-1500</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2024-11-08T20:12:10.637412" elapsed="0.001289"/>
+</kw>
+<doc>Test the financial calculation with negative earnings</doc>
+<status status="PASS" start="2024-11-08T20:12:10.634295" elapsed="0.004406"/>
+</test>
+<test id="s1-t5" name="Test Large Values" line="36">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-11-08T20:12:10.641799" level="INFO">${earnings} = 1000000000</msg>
+<var>${earnings}</var>
+<arg>1000000000</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-11-08T20:12:10.641799" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-11-08T20:12:10.642928" level="INFO">${expenses} = 500000000</msg>
+<var>${expenses}</var>
+<arg>500000000</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-11-08T20:12:10.642928" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-11-08T20:12:10.643938" level="INFO">${expected_balance} = 500000000</msg>
+<var>${expected_balance}</var>
+<arg>${earnings} - ${expenses}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-11-08T20:12:10.643938" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2024-11-08T20:12:10.644942" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${expected_balance}</arg>
+<arg>500000000</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2024-11-08T20:12:10.644942" elapsed="0.000000"/>
+</kw>
+<doc>Test the financial calculation with large earnings and expenses</doc>
+<status status="PASS" start="2024-11-08T20:12:10.640861" elapsed="0.005605"/>
+</test>
+<status status="PASS" start="2024-11-08T20:12:10.281431" elapsed="0.368596"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="5" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="Profile">Profile</stat>
+<stat pass="5" fail="0" skip="0" id="s1" name="Financial test">Financial test</stat>
 </suite>
 </statistics>
 <errors>

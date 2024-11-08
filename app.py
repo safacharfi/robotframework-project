@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, flash, session
+from flask import Flask, jsonify, render_template, request, redirect, url_for, flash, session
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
@@ -38,6 +38,29 @@ def home():
 @app.route('/settings')
 def settings():
     return render_template('settings.html')
+
+@app.route('/get_financial_data')
+def get_financial_data():
+    # Fetch the necessary data from your data source (e.g., database, API)
+    revenue = 100000
+    expenses = 80000
+    profit = revenue - expenses
+
+    # Prepare the quarterly data
+    quarterly_revenue = [25000, 30000, 22000, 23000]
+    quarterly_expenses = [20000, 18000, 21000, 21000]
+    quarterly_net_profit = [5000, 12000, 1000, 2000]
+
+    financial_data = {
+        'total_revenue': revenue,
+        'total_expenses': expenses,
+        'net_profit': profit,
+        'quarterly_revenue': quarterly_revenue,
+        'quarterly_expenses': quarterly_expenses,
+        'quarterly_net_profit': quarterly_net_profit
+    }
+
+    return jsonify(financial_data)
 
 @app.route('/add_employee', methods=['GET', 'POST'])
 def add_employee():
