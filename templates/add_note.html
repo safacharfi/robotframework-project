@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .welcome { margin: 20px; }
+        form { margin-top: 20px; }
+        input[type="text"] { width: calc(100% - 110px); padding: 10px; }
+        input[type="submit"] { padding: 10px; }
+        ul { list-style-type: none; padding: 0; }
+        li { margin: 5px 0; }
+        button { margin-left: 10px; }
+    </style>
+</head>
+<body>
+    <div class="welcome">
+        <h2>Welcome, {{ username }}!</h2>
+        <p>This is your dashboard. Here you can manage your notes.</p>
+
+        <!-- Note addition form -->
+        <form method="POST" action="{{ url_for('dashboard') }}">
+            <input type="text" name="note" placeholder="Enter your note" required>
+            <input type="submit" value="Add Note">
+        </form>
+
+        <h3>Your Notes:</h3>
+        <ul>
+            {% for note in notes %}
+            <li>
+                {{ note }}
+                <!-- Delete note form -->
+                <form method="POST" action="{{ url_for('delete_note', index=loop.index0) }}" style="display:inline;">
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
+</body>
+</html>

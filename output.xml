@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.12.0 on win32)" generated="2024-11-16T19:43:34.890134" rpa="false" schemaversion="5">
+<suite id="s1" name="Profile" source="C:\Users\safac\robotframework-project\tests\profile.robot">
+<test id="s1-t1" name="Profile Update Test Without username" line="10">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-11-16T19:43:35.266246" level="INFO">Opening browser 'chrome' to base url 'http://127.0.0.1:5000/'.</msg>
+<arg>${URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-11-16T19:43:35.266246" elapsed="2.643768"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-16T19:43:37.911067" level="INFO">Typing text 'testuser' into text field 'name=username'.</msg>
+<arg>name=username</arg>
+<arg>testuser</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T19:43:37.911067" elapsed="0.163418"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-16T19:43:38.075493" level="INFO">Typing text 'password' into text field 'name=password'.</msg>
+<arg>name=password</arg>
+<arg>password</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T19:43:38.074485" elapsed="0.105600"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-11-16T19:43:38.180085" level="INFO">Clicking button 'xpath=//input[@type='submit']'.</msg>
+<arg>xpath=//input[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T19:43:38.180085" elapsed="1.479670"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-11-16T19:43:39.659755" level="INFO">Clicking link 'Profile'.</msg>
+<arg>Profile</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T19:43:39.659755" elapsed="0.226054"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//a[text()='Edit Profile']</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-11-16T19:43:39.886617" elapsed="0.024435"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-11-16T19:43:39.912049" level="INFO">Clicking link 'xpath=//a[text()='Edit Profile']'.</msg>
+<arg>xpath=//a[text()='Edit Profile']</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T19:43:39.912049" elapsed="0.102309"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-16T19:43:40.015374" level="INFO">Typing text '' into text field 'name=username'.</msg>
+<arg>name=username</arg>
+<arg>${empty}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T19:43:40.014866" elapsed="0.078343"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-16T19:43:40.093209" level="INFO">Typing text 'safa' into text field 'name=first_name'.</msg>
+<arg>name=first_name</arg>
+<arg>safa</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T19:43:40.093209" elapsed="0.094999"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-16T19:43:40.189210" level="INFO">Typing text 'charfi' into text field 'name=last_name'.</msg>
+<arg>name=last_name</arg>
+<arg>charfi</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T19:43:40.188208" elapsed="0.086865"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-16T19:43:40.275073" level="INFO">Typing text '987-654-3210' into text field 'name=phone'.</msg>
+<arg>name=phone</arg>
+<arg>987-654-3210</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T19:43:40.275073" elapsed="0.091029"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//button[text()='Update Profile']</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-11-16T19:43:40.367116" elapsed="0.019741"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-11-16T19:43:40.388310" level="INFO">Clicking button 'xpath=//button[text()='Update Profile']'.</msg>
+<arg>xpath=//button[text()='Update Profile']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T19:43:40.388310" elapsed="0.103808"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-11-16T19:43:41.492293" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-11-16T19:43:40.492118" elapsed="1.000175"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-11-16T19:43:41.519923" level="INFO">Current page contains text 'Edit Profile'.</msg>
+<arg>Edit Profile</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-11-16T19:43:41.492293" elapsed="0.027630"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-11-16T19:43:41.519923" elapsed="2.195905"/>
+</kw>
+<doc>Test updating the user profile without username</doc>
+<status status="PASS" start="2024-11-16T19:43:35.265228" elapsed="8.451118"/>
+</test>
+<test id="s1-t2" name="Profile Update Test Without first_name" line="33">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-11-16T19:43:43.722712" level="INFO">Opening browser 'chrome' to base url 'http://127.0.0.1:5000/'.</msg>
+<arg>${URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-11-16T19:43:43.720389" elapsed="2.490666"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-16T19:43:46.211055" level="INFO">Typing text 'testuser' into text field 'name=username'.</msg>
+<arg>name=username</arg>
+<arg>testuser</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T19:43:46.211055" elapsed="0.155216"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-16T19:43:46.366271" level="INFO">Typing text 'password' into text field 'name=password'.</msg>
+<arg>name=password</arg>
+<arg>password</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T19:43:46.366271" elapsed="0.121581"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-11-16T19:43:46.488862" level="INFO">Clicking button 'xpath=//input[@type='submit']'.</msg>
+<arg>xpath=//input[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T19:43:46.488862" elapsed="2.616408"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-11-16T19:43:49.106707" level="INFO">Clicking link 'Profile'.</msg>
+<arg>Profile</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T19:43:49.106467" elapsed="0.292038"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//a[text()='Edit Profile']</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-11-16T19:43:49.400121" elapsed="0.027197"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-11-16T19:43:49.427318" level="INFO">Clicking link 'xpath=//a[text()='Edit Profile']'.</msg>
+<arg>xpath=//a[text()='Edit Profile']</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T19:43:49.427318" elapsed="0.098161"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-16T19:43:49.526793" level="INFO">Typing text 'safacharfi' into text field 'name=username'.</msg>
+<arg>name=username</arg>
+<arg>safacharfi</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T19:43:49.526793" elapsed="0.131932"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-16T19:43:49.659732" level="INFO">Typing text '' into text field 'name=first_name'.</msg>
+<arg>name=first_name</arg>
+<arg>${empty}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T19:43:49.658725" elapsed="0.088629"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-16T19:43:49.748946" level="INFO">Typing text 'charfi' into text field 'name=last_name'.</msg>
+<arg>name=last_name</arg>
+<arg>charfi</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T19:43:49.748441" elapsed="0.118795"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-16T19:43:49.868371" level="INFO">Typing text '987-654-3210' into text field 'name=phone'.</msg>
+<arg>name=phone</arg>
+<arg>987-654-3210</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T19:43:49.868371" elapsed="0.131870"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//button[text()='Update Profile']</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-11-16T19:43:50.000241" elapsed="0.016004"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-11-16T19:43:50.017742" level="INFO">Clicking button 'xpath=//button[text()='Update Profile']'.</msg>
+<arg>xpath=//button[text()='Update Profile']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T19:43:50.017742" elapsed="0.083443"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-11-16T19:43:51.102406" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-11-16T19:43:50.102180" elapsed="1.000226"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-11-16T19:43:51.119184" level="INFO">Current page contains text 'Edit Profile'.</msg>
+<arg>Edit Profile</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-11-16T19:43:51.102406" elapsed="0.016778"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-11-16T19:43:51.119184" elapsed="2.184269"/>
+</kw>
+<doc>Test updating the user profile without firstname</doc>
+<status status="PASS" start="2024-11-16T19:43:43.718369" elapsed="9.586616"/>
+</test>
+<test id="s1-t3" name="Profile Update Test Without last_name" line="55">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-11-16T19:43:53.310724" level="INFO">Opening browser 'chrome' to base url 'http://127.0.0.1:5000/'.</msg>
+<arg>${URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-11-16T19:43:53.309793" elapsed="2.390592"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-16T19:43:55.701385" level="INFO">Typing text 'testuser' into text field 'name=username'.</msg>
+<arg>name=username</arg>
+<arg>testuser</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T19:43:55.700385" elapsed="0.151336"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-16T19:43:55.852724" level="INFO">Typing text 'password' into text field 'name=password'.</msg>
+<arg>name=password</arg>
+<arg>password</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T19:43:55.852724" elapsed="0.127651"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-11-16T19:43:55.981372" level="INFO">Clicking button 'xpath=//input[@type='submit']'.</msg>
+<arg>xpath=//input[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T19:43:55.980375" elapsed="1.512461"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-11-16T19:43:57.492836" level="INFO">Clicking link 'Profile'.</msg>
+<arg>Profile</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T19:43:57.492836" elapsed="1.254585"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//a[text()='Edit Profile']</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-11-16T19:43:58.748630" elapsed="0.028198"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-11-16T19:43:58.776828" level="INFO">Clicking link 'xpath=//a[text()='Edit Profile']'.</msg>
+<arg>xpath=//a[text()='Edit Profile']</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T19:43:58.776828" elapsed="0.108504"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-16T19:43:58.885332" level="INFO">Typing text 'safacharfi' into text field 'name=username'.</msg>
+<arg>name=username</arg>
+<arg>safacharfi</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T19:43:58.885332" elapsed="0.115586"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-16T19:43:59.000918" level="INFO">Typing text 'safa' into text field 'name=first_name'.</msg>
+<arg>name=first_name</arg>
+<arg>safa</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T19:43:59.000918" elapsed="0.098837"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-16T19:43:59.100752" level="INFO">Typing text '' into text field 'name=last_name'.</msg>
+<arg>name=last_name</arg>
+<arg>${empty}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T19:43:59.099755" elapsed="0.077929"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-16T19:43:59.177684" level="INFO">Typing text '987-654-3210' into text field 'name=phone'.</msg>
+<arg>name=phone</arg>
+<arg>987-654-3210</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T19:43:59.177684" elapsed="0.137719"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//button[text()='Update Profile']</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-11-16T19:43:59.315403" elapsed="0.019786"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-11-16T19:43:59.336552" level="INFO">Clicking button 'xpath=//button[text()='Update Profile']'.</msg>
+<arg>xpath=//button[text()='Update Profile']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T19:43:59.335189" elapsed="0.096336"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-11-16T19:44:00.431812" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-11-16T19:43:59.431525" elapsed="1.000287"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-11-16T19:44:00.449230" level="INFO">Current page contains text 'Edit Profile'.</msg>
+<arg>Edit Profile</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-11-16T19:44:00.431812" elapsed="0.017418"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-11-16T19:44:00.449230" elapsed="2.218958"/>
+</kw>
+<doc>Test updating the user profile without lastname</doc>
+<status status="PASS" start="2024-11-16T19:43:53.307720" elapsed="9.360468"/>
+</test>
+<test id="s1-t4" name="Profile Update Test Without phone number" line="77">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-11-16T19:44:02.670064" level="INFO">Opening browser 'chrome' to base url 'http://127.0.0.1:5000/'.</msg>
+<arg>${URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-11-16T19:44:02.670064" elapsed="2.556971"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-16T19:44:05.228419" level="INFO">Typing text 'testuser' into text field 'name=username'.</msg>
+<arg>name=username</arg>
+<arg>testuser</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T19:44:05.227035" elapsed="0.179446"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-16T19:44:05.407561" level="INFO">Typing text 'password' into text field 'name=password'.</msg>
+<arg>name=password</arg>
+<arg>password</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T19:44:05.406481" elapsed="0.121742"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-11-16T19:44:05.529249" level="INFO">Clicking button 'xpath=//input[@type='submit']'.</msg>
+<arg>xpath=//input[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T19:44:05.528223" elapsed="1.311888"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-11-16T19:44:06.841111" level="INFO">Clicking link 'Profile'.</msg>
+<arg>Profile</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T19:44:06.841111" elapsed="0.217113"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//a[text()='Edit Profile']</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-11-16T19:44:07.058224" elapsed="0.023808"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-11-16T19:44:07.083532" level="INFO">Clicking link 'xpath=//a[text()='Edit Profile']'.</msg>
+<arg>xpath=//a[text()='Edit Profile']</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T19:44:07.082032" elapsed="0.095373"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-16T19:44:07.178758" level="INFO">Typing text 'safacharfi' into text field 'name=username'.</msg>
+<arg>name=username</arg>
+<arg>safacharfi</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T19:44:07.178758" elapsed="0.122782"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-16T19:44:07.302732" level="INFO">Typing text 'safa' into text field 'name=first_name'.</msg>
+<arg>name=first_name</arg>
+<arg>safa</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T19:44:07.301540" elapsed="0.107689"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-16T19:44:07.410254" level="INFO">Typing text 'charfi' into text field 'name=last_name'.</msg>
+<arg>name=last_name</arg>
+<arg>charfi</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T19:44:07.410254" elapsed="0.124171"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-16T19:44:07.536505" level="INFO">Typing text '' into text field 'name=phone'.</msg>
+<arg>name=phone</arg>
+<arg>${empty}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T19:44:07.535438" elapsed="0.102674"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//button[text()='Update Profile']</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-11-16T19:44:07.638112" elapsed="0.020653"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-11-16T19:44:07.659782" level="INFO">Clicking button 'xpath=//button[text()='Update Profile']'.</msg>
+<arg>xpath=//button[text()='Update Profile']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T19:44:07.658765" elapsed="0.097775"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-11-16T19:44:08.758288" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-11-16T19:44:07.758007" elapsed="1.000281"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-11-16T19:44:08.788708" level="INFO">Current page contains text 'Edit Profile'.</msg>
+<arg>Edit Profile</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-11-16T19:44:08.758288" elapsed="0.030420"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-11-16T19:44:08.789734" elapsed="2.306330"/>
+</kw>
+<doc>Test updating the user profile without lphone number</doc>
+<status status="PASS" start="2024-11-16T19:44:02.670064" elapsed="8.426734"/>
+</test>
+<status status="PASS" start="2024-11-16T19:43:34.892133" elapsed="36.207173"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="4" fail="0" skip="0" id="s1" name="Profile">Profile</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
