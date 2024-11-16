@@ -22,6 +22,23 @@ Invalid Login Test
     Click Button    xpath=//input[@type='submit']
     Page Should Contain    Invalid credentials
     Close Browser
+Invalid Username Test
+    [Documentation]    Test invalid username
+    Open Browser    ${URL}    chrome
+    Input Text    name=username    wronguser
+    Input Text    name=password    password
+    Click Button    xpath=//input[@type='submit']
+    Page Should Contain    Invalid credentials
+    Close Browser
+
+Invalid Password Test
+    [Documentation]    Test invalid password
+    Open Browser    ${URL}    chrome
+    Input Text    name=username    testuser
+    Input Text    name=password    wrongpassword
+    Click Button    xpath=//input[@type='submit']
+    Page Should Contain    Invalid credentials
+    Close Browser
 
 Dashboard Access Test
     [Documentation]    Test access to dashboard after valid login

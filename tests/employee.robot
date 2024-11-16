@@ -35,8 +35,6 @@ View Employee List Test
     Page Should Contain    Phone
     Close Browser
 
-
-
 Employee Count Test
     [Documentation]    Test that employee counts by role are displayed correctly.
     Open Browser    ${URL}/    chrome
@@ -55,4 +53,49 @@ Employee Count Test
     Page Should Contain    1   # Adjust this based on your actual data
     Page Should Contain    1   # Adjust this based on your actual data
     
+    Close Browser
+
+Missing Employee Name Test
+    [Documentation]    Test adding an employee with a missing name
+    Open Browser    ${URL}/    chrome
+    Input Text    name=username    testuser    # Login
+    Input Text    name=password    password
+    Click Button    xpath=//input[@type='submit']
+    Wait Until Page Contains    Welcome, testuser!    timeout=10
+    Go To    ${URL}/add_employee
+    Wait Until Element Is Visible    name=name    timeout=10
+    Input Text    name=role    Developer
+    Input Text    name=phone    123456789
+    Click Button    xpath=//button[contains(text(), 'Add Employee')]
+    Page Should Contain    Add a new employee
+    Close Browser
+
+Missing Employee Role Test
+    [Documentation]    Test adding an employee with a missing role
+    Open Browser    ${URL}/    chrome
+    Input Text    name=username    testuser    # Login
+    Input Text    name=password    password
+    Click Button    xpath=//input[@type='submit']
+    Wait Until Page Contains    Welcome, testuser!    timeout=10
+    Go To    ${URL}/add_employee
+    Wait Until Element Is Visible    name=name    timeout=10
+    Input Text    name=name    John Doe
+    Input Text    name=phone    123456789
+    Click Button    xpath=//button[contains(text(), 'Add Employee')]
+    Page Should Contain    Add a new employee
+    Close Browser
+
+Missing Employee Phone Test
+    [Documentation]    Test adding an employee with a missing phone
+    Open Browser    ${URL}/    chrome
+    Input Text    name=username    testuser    # Login
+    Input Text    name=password    password
+    Click Button    xpath=//input[@type='submit']
+    Wait Until Page Contains    Welcome, testuser!    timeout=10
+    Go To    ${URL}/add_employee
+    Wait Until Element Is Visible    name=name    timeout=10
+    Input Text    name=name    John Doe
+    Input Text    name=role    Developer
+    Click Button    xpath=//button[contains(text(), 'Add Employee')]
+    Page Should Contain    Add a new employee
     Close Browser

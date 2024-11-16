@@ -1,253 +1,591 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.1.1 (Python 3.12.0 on win32)" generated="2024-11-08T20:12:10.276365" rpa="false" schemaversion="5">
-<suite id="s1" name="Financial test" source="C:\Users\safac\OneDrive\Desktop\flaskapp\tests\Financial_test.robot">
-<test id="s1-t1" name="Test Correct Financial Calculation" line="8">
-<kw name="GET" owner="RequestsLibrary">
-<msg time="2024-11-08T20:12:10.598641" level="INFO">GET Request : url=http://127.0.0.1:5000/get_financial_data 
- path_url=/get_financial_data 
- headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
- body=None 
- </msg>
-<msg time="2024-11-08T20:12:10.598641" level="INFO">GET Response : url=http://127.0.0.1:5000/get_financial_data 
- status=200, reason=OK 
- headers={'Content-Type': 'application/json', 'Content-Length': '314', 'Server': 'Werkzeug/2.0.1 Python/3.12.0', 'Date': 'Fri, 08 Nov 2024 19:12:10 GMT'} 
- body={
-  "net_profit": 20000, 
-  "quarterly_expenses": [
-    20000, 
-    18000, 
-    21000, 
-    21000
-  ], 
-  "quarterly_net_profit": [
-    5000, 
-    12000, 
-    1000, 
-    2000
-  ], 
-  "quarterly_revenue": [
-    25000, 
-    30000, 
-    22000, 
-    23000
-  ], 
-  "total_expenses": 80000, 
-  "total_revenue": 100000
-}
- 
- </msg>
-<msg time="2024-11-08T20:12:10.598641" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<var>${response}</var>
-<arg>${BASE_URL}/get_financial_data</arg>
-<doc>Sends a GET request.</doc>
-<status status="PASS" start="2024-11-08T20:12:10.585482" elapsed="0.013159"/>
+<robot generator="Robot 7.1.1 (Python 3.12.0 on win32)" generated="2024-11-16T18:56:24.172892" rpa="false" schemaversion="5">
+<suite id="s1" name="Note Crud" source="C:\Users\safac\robotframework-project\tests\note_crud.robot">
+<test id="s1-t1" name="Access Notes Page Test" line="12">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:56:24.670189" level="INFO">Opening browser 'chrome' to base url 'http://127.0.0.1:5000/'.</msg>
+<arg>${URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-11-16T18:56:24.670189" elapsed="2.809591"/>
 </kw>
-<kw name="Should Be Equal As Numbers" owner="BuiltIn">
-<msg time="2024-11-08T20:12:10.601024" level="INFO">Argument types are:
-&lt;class 'int'&gt;
-&lt;class 'str'&gt;</msg>
-<arg>${response.json()['total_revenue']}</arg>
-<arg>100000</arg>
-<doc>Fails if objects are unequal after converting them to real numbers.</doc>
-<status status="PASS" start="2024-11-08T20:12:10.600008" elapsed="0.001016"/>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:56:27.480838" level="INFO">Typing text 'testuser' into text field 'name=username'.</msg>
+<arg>name=username</arg>
+<arg>testuser</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T18:56:27.479780" elapsed="0.161180"/>
 </kw>
-<kw name="Should Be Equal As Numbers" owner="BuiltIn">
-<msg time="2024-11-08T20:12:10.603023" level="INFO">Argument types are:
-&lt;class 'int'&gt;
-&lt;class 'str'&gt;</msg>
-<arg>${response.json()['total_expenses']}</arg>
-<arg>80000</arg>
-<doc>Fails if objects are unequal after converting them to real numbers.</doc>
-<status status="PASS" start="2024-11-08T20:12:10.602022" elapsed="0.001001"/>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:56:27.641960" level="INFO">Typing text 'password' into text field 'name=password'.</msg>
+<arg>name=password</arg>
+<arg>password</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T18:56:27.640960" elapsed="0.157912"/>
 </kw>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2024-11-08T20:12:10.604025" level="INFO">${expected_balance} = 20000</msg>
-<var>${expected_balance}</var>
-<arg>100000 - 80000</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2024-11-08T20:12:10.604025" elapsed="0.000000"/>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:56:27.800085" level="INFO">Clicking button 'xpath=//input[@type='submit']'.</msg>
+<arg>xpath=//input[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T18:56:27.798872" elapsed="0.107635"/>
 </kw>
-<kw name="Should Be Equal As Numbers" owner="BuiltIn">
-<arg>${expected_balance}</arg>
-<arg>${response.json()['net_profit']}</arg>
-<doc>Fails if objects are unequal after converting them to real numbers.</doc>
-<status status="PASS" start="2024-11-08T20:12:10.605031" elapsed="0.000990"/>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:56:27.907492" level="INFO">Clicking link 'Manage Notes'.</msg>
+<arg>Manage Notes</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T18:56:27.907492" elapsed="1.873688"/>
 </kw>
-<doc>Test the financial calculation function with correct values</doc>
-<status status="PASS" start="2024-11-08T20:12:10.583479" elapsed="0.023050"/>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:56:29.800575" level="INFO">Current page contains text 'Add a New Event'.</msg>
+<arg>Add a New Event</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-11-16T18:56:29.782239" elapsed="0.018336"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-11-16T18:56:29.801787" elapsed="2.259302"/>
+</kw>
+<doc>Test accessing the notes page</doc>
+<status status="PASS" start="2024-11-16T18:56:24.669747" elapsed="7.392788"/>
 </test>
-<test id="s1-t2" name="Test Incorrect Financial Calculation" line="16">
-<kw name="GET" owner="RequestsLibrary">
-<msg time="2024-11-08T20:12:10.619445" level="INFO">GET Request : url=http://127.0.0.1:5000/get_financial_data 
- path_url=/get_financial_data 
- headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
- body=None 
- </msg>
-<msg time="2024-11-08T20:12:10.619445" level="INFO">GET Response : url=http://127.0.0.1:5000/get_financial_data 
- status=200, reason=OK 
- headers={'Content-Type': 'application/json', 'Content-Length': '314', 'Server': 'Werkzeug/2.0.1 Python/3.12.0', 'Date': 'Fri, 08 Nov 2024 19:12:10 GMT'} 
- body={
-  "net_profit": 20000, 
-  "quarterly_expenses": [
-    20000, 
-    18000, 
-    21000, 
-    21000
-  ], 
-  "quarterly_net_profit": [
-    5000, 
-    12000, 
-    1000, 
-    2000
-  ], 
-  "quarterly_revenue": [
-    25000, 
-    30000, 
-    22000, 
-    23000
-  ], 
-  "total_expenses": 80000, 
-  "total_revenue": 100000
-}
- 
- </msg>
-<msg time="2024-11-08T20:12:10.619445" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<var>${response}</var>
-<arg>${BASE_URL}/get_financial_data</arg>
-<doc>Sends a GET request.</doc>
-<status status="PASS" start="2024-11-08T20:12:10.609413" elapsed="0.010032"/>
+<test id="s1-t2" name="Add New Event Test" line="22">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:56:32.069045" level="INFO">Opening browser 'chrome' to base url 'http://127.0.0.1:5000/'.</msg>
+<arg>${URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-11-16T18:56:32.068036" elapsed="2.855493"/>
 </kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2024-11-08T20:12:10.620461" level="INFO">${expected_incorrect} = 800</msg>
-<var>${expected_incorrect}</var>
-<arg>800</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2024-11-08T20:12:10.620461" elapsed="0.000000"/>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:56:34.924612" level="INFO">Typing text 'testuser' into text field 'name=username'.</msg>
+<arg>name=username</arg>
+<arg>testuser</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T18:56:34.924612" elapsed="0.233863"/>
 </kw>
-<kw name="Should Not Be Equal As Numbers" owner="BuiltIn">
-<msg time="2024-11-08T20:12:10.621458" level="INFO">Argument types are:
-&lt;class 'str'&gt;
-&lt;class 'int'&gt;</msg>
-<arg>${expected_incorrect}</arg>
-<arg>${response.json()['net_profit']}</arg>
-<doc>Fails if objects are equal after converting them to real numbers.</doc>
-<status status="PASS" start="2024-11-08T20:12:10.620461" elapsed="0.002004"/>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:56:35.159476" level="INFO">Typing text 'password' into text field 'name=password'.</msg>
+<arg>name=password</arg>
+<arg>password</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T18:56:35.159476" elapsed="0.183968"/>
 </kw>
-<doc>Test the financial calculation function with incorrect expected values</doc>
-<status status="PASS" start="2024-11-08T20:12:10.608400" elapsed="0.014065"/>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:56:35.344444" level="INFO">Clicking button 'xpath=//input[@type='submit']'.</msg>
+<arg>xpath=//input[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T18:56:35.344444" elapsed="0.721367"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:56:36.065811" level="INFO">Clicking link 'Manage Notes'.</msg>
+<arg>Manage Notes</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T18:56:36.065811" elapsed="1.180488"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:56:37.247295" level="INFO">Typing text 'My new event' into text field 'xpath=//textarea[@name='note']'.</msg>
+<arg>xpath=//textarea[@name='note']</arg>
+<arg>My new event</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T18:56:37.246299" elapsed="0.189410"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:56:37.436708" level="INFO">Clicking button 'xpath=//button[contains(text(), 'Add Event')]'.</msg>
+<arg>xpath=//button[contains(text(), 'Add Event')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T18:56:37.435709" elapsed="0.161507"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:56:37.768313" level="INFO">Current page contains text 'My new event'.</msg>
+<arg>My new event</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-11-16T18:56:37.598528" elapsed="0.169785"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-11-16T18:56:37.771268" elapsed="2.283414"/>
+</kw>
+<doc>Test adding a new event</doc>
+<status status="PASS" start="2024-11-16T18:56:32.066031" elapsed="7.989653"/>
 </test>
-<test id="s1-t3" name="Test Zero Values" line="22">
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2024-11-08T20:12:10.628285" level="INFO">${earnings} = 0</msg>
-<var>${earnings}</var>
-<arg>0</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2024-11-08T20:12:10.628285" elapsed="0.000000"/>
+<test id="s1-t3" name="Add New Event Test without any text" line="34">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:56:40.056683" level="INFO">Opening browser 'chrome' to base url 'http://127.0.0.1:5000/'.</msg>
+<arg>${URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-11-16T18:56:40.056683" elapsed="2.557345"/>
 </kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2024-11-08T20:12:10.629295" level="INFO">${expenses} = 0</msg>
-<var>${expenses}</var>
-<arg>0</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2024-11-08T20:12:10.629295" elapsed="0.000000"/>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:56:42.616038" level="INFO">Typing text 'testuser' into text field 'name=username'.</msg>
+<arg>name=username</arg>
+<arg>testuser</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T18:56:42.615025" elapsed="0.187864"/>
 </kw>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2024-11-08T20:12:10.630302" level="INFO">${expected_balance} = 0</msg>
-<var>${expected_balance}</var>
-<arg>${earnings} - ${expenses}</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2024-11-08T20:12:10.630302" elapsed="0.000000"/>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:56:42.804231" level="INFO">Typing text 'password' into text field 'name=password'.</msg>
+<arg>name=password</arg>
+<arg>password</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T18:56:42.804231" elapsed="0.156764"/>
 </kw>
-<kw name="Should Be Equal As Numbers" owner="BuiltIn">
-<msg time="2024-11-08T20:12:10.631296" level="INFO">Argument types are:
-&lt;class 'int'&gt;
-&lt;class 'str'&gt;</msg>
-<arg>${expected_balance}</arg>
-<arg>0</arg>
-<doc>Fails if objects are unequal after converting them to real numbers.</doc>
-<status status="PASS" start="2024-11-08T20:12:10.631296" elapsed="0.000000"/>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:56:42.960995" level="INFO">Clicking button 'xpath=//input[@type='submit']'.</msg>
+<arg>xpath=//input[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T18:56:42.960995" elapsed="0.097587"/>
 </kw>
-<doc>Test the financial calculation with zero earnings and expenses</doc>
-<status status="PASS" start="2024-11-08T20:12:10.624482" elapsed="0.007814"/>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:56:43.059810" level="INFO">Clicking link 'Manage Notes'.</msg>
+<arg>Manage Notes</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T18:56:43.058582" elapsed="1.003559"/>
+</kw>
+<kw name="Get Length Of Notes">
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:56:44.075141" level="INFO">${notes} = []</msg>
+<var>${notes}</var>
+<arg>xpath=//div[@class='note']</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-11-16T18:56:44.063156" elapsed="0.011985"/>
+</kw>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2024-11-16T18:56:44.076201" level="INFO">Length is 0.</msg>
+<msg time="2024-11-16T18:56:44.076201" level="INFO">${length} = 0</msg>
+<var>${length}</var>
+<arg>${notes}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2024-11-16T18:56:44.075141" elapsed="0.001060"/>
+</kw>
+<return>
+<value>${length}</value>
+<status status="PASS" start="2024-11-16T18:56:44.076201" elapsed="0.000000"/>
+</return>
+<msg time="2024-11-16T18:56:44.076201" level="INFO">${old_length} = 0</msg>
+<var>${old_length}</var>
+<doc>Retrieve the length of notes displayed on the page.</doc>
+<status status="PASS" start="2024-11-16T18:56:44.063156" elapsed="0.013045"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:56:44.076706" level="INFO">Typing text '""' into text field 'xpath=//textarea[@name='note']'.</msg>
+<arg>xpath=//textarea[@name='note']</arg>
+<arg>${EMPTY}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T18:56:44.076706" elapsed="0.092253"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:56:44.170090" level="INFO">Clicking button 'xpath=//button[contains(text(), 'Add Event')]'.</msg>
+<arg>xpath=//button[contains(text(), 'Add Event')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T18:56:44.170090" elapsed="0.163029"/>
+</kw>
+<kw name="Get Length Of Notes">
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:56:44.340911" level="INFO">${notes} = []</msg>
+<var>${notes}</var>
+<arg>xpath=//div[@class='note']</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-11-16T18:56:44.334116" elapsed="0.006795"/>
+</kw>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2024-11-16T18:56:44.341927" level="INFO">Length is 0.</msg>
+<msg time="2024-11-16T18:56:44.341927" level="INFO">${length} = 0</msg>
+<var>${length}</var>
+<arg>${notes}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2024-11-16T18:56:44.340911" elapsed="0.001016"/>
+</kw>
+<return>
+<value>${length}</value>
+<status status="PASS" start="2024-11-16T18:56:44.341927" elapsed="0.000000"/>
+</return>
+<msg time="2024-11-16T18:56:44.341927" level="INFO">${new_length} = 0</msg>
+<var>${new_length}</var>
+<doc>Retrieve the length of notes displayed on the page.</doc>
+<status status="PASS" start="2024-11-16T18:56:44.334116" elapsed="0.007811"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<arg>${new_length}</arg>
+<arg>${old_length}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-11-16T18:56:44.342433" elapsed="0.000000"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-11-16T18:56:44.342433" elapsed="2.362811"/>
+</kw>
+<doc>Test adding a new event without any text</doc>
+<status status="PASS" start="2024-11-16T18:56:40.056683" elapsed="6.648561"/>
 </test>
-<test id="s1-t4" name="Test Negative Earnings" line="29">
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2024-11-08T20:12:10.635383" level="INFO">${earnings} = -500</msg>
-<var>${earnings}</var>
-<arg>-500</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2024-11-08T20:12:10.635383" elapsed="0.000000"/>
+<test id="s1-t4" name="Delete Event Test" line="56">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:56:46.707758" level="INFO">Opening browser 'chrome' to base url 'http://127.0.0.1:5000/'.</msg>
+<arg>${URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-11-16T18:56:46.706748" elapsed="3.392646"/>
 </kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2024-11-08T20:12:10.636393" level="INFO">${expenses} = 1000</msg>
-<var>${expenses}</var>
-<arg>1000</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2024-11-08T20:12:10.636393" elapsed="0.000000"/>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:56:50.099500" level="INFO">Typing text 'testuser' into text field 'name=username'.</msg>
+<arg>name=username</arg>
+<arg>testuser</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T18:56:50.099500" elapsed="0.153805"/>
 </kw>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2024-11-08T20:12:10.637412" level="INFO">${expected_balance} = -1500</msg>
-<var>${expected_balance}</var>
-<arg>${earnings} - ${expenses}</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2024-11-08T20:12:10.637412" elapsed="0.000000"/>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:56:50.254505" level="INFO">Typing text 'password' into text field 'name=password'.</msg>
+<arg>name=password</arg>
+<arg>password</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T18:56:50.254505" elapsed="0.258697"/>
 </kw>
-<kw name="Should Be Equal As Numbers" owner="BuiltIn">
-<msg time="2024-11-08T20:12:10.638701" level="INFO">Argument types are:
-&lt;class 'int'&gt;
-&lt;class 'str'&gt;</msg>
-<arg>${expected_balance}</arg>
-<arg>-1500</arg>
-<doc>Fails if objects are unequal after converting them to real numbers.</doc>
-<status status="PASS" start="2024-11-08T20:12:10.637412" elapsed="0.001289"/>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:56:50.514245" level="INFO">Clicking button 'xpath=//input[@type='submit']'.</msg>
+<arg>xpath=//input[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T18:56:50.514245" elapsed="0.764556"/>
 </kw>
-<doc>Test the financial calculation with negative earnings</doc>
-<status status="PASS" start="2024-11-08T20:12:10.634295" elapsed="0.004406"/>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:56:51.280023" level="INFO">Clicking link 'Manage Notes'.</msg>
+<arg>Manage Notes</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T18:56:51.280023" elapsed="0.508368"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:56:51.788391" level="INFO">Typing text 'Note to be deleted' into text field 'xpath=//textarea[@name='note']'.</msg>
+<arg>xpath=//textarea[@name='note']</arg>
+<arg>Note to be deleted</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T18:56:51.788391" elapsed="0.207572"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:56:51.996964" level="INFO">Clicking button 'xpath=//button[contains(text(), 'Add Event')]'.</msg>
+<arg>xpath=//button[contains(text(), 'Add Event')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T18:56:51.996964" elapsed="0.189297"/>
+</kw>
+<kw name="Get Length Of Notes">
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:56:52.250984" level="INFO">${notes} = []</msg>
+<var>${notes}</var>
+<arg>xpath=//div[@class='note']</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-11-16T18:56:52.187268" elapsed="0.063716"/>
+</kw>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2024-11-16T18:56:52.251994" level="INFO">Length is 0.</msg>
+<msg time="2024-11-16T18:56:52.251994" level="INFO">${length} = 0</msg>
+<var>${length}</var>
+<arg>${notes}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2024-11-16T18:56:52.250984" elapsed="0.001010"/>
+</kw>
+<return>
+<value>${length}</value>
+<status status="PASS" start="2024-11-16T18:56:52.251994" elapsed="0.000000"/>
+</return>
+<msg time="2024-11-16T18:56:52.251994" level="INFO">${old_length} = 0</msg>
+<var>${old_length}</var>
+<doc>Retrieve the length of notes displayed on the page.</doc>
+<status status="PASS" start="2024-11-16T18:56:52.187268" elapsed="0.064726"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:56:52.252995" level="INFO">Clicking button 'xpath=(//button[contains(text(), 'Delete')])[last()]'.</msg>
+<arg>xpath=(//button[contains(text(), 'Delete')])[last()]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T18:56:52.252995" elapsed="0.173678"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-11-16T18:56:53.428155" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-11-16T18:56:52.427681" elapsed="1.000474"/>
+</kw>
+<kw name="Get Length Of Notes">
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:56:53.446935" level="INFO">${notes} = []</msg>
+<var>${notes}</var>
+<arg>xpath=//div[@class='note']</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-11-16T18:56:53.429597" elapsed="0.018555"/>
+</kw>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2024-11-16T18:56:53.448277" level="INFO">Length is 0.</msg>
+<msg time="2024-11-16T18:56:53.448277" level="INFO">${length} = 0</msg>
+<var>${length}</var>
+<arg>${notes}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2024-11-16T18:56:53.448277" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${length}</value>
+<status status="PASS" start="2024-11-16T18:56:53.448277" elapsed="0.000000"/>
+</return>
+<msg time="2024-11-16T18:56:53.448277" level="INFO">${new_length} = 0</msg>
+<var>${new_length}</var>
+<doc>Retrieve the length of notes displayed on the page.</doc>
+<status status="PASS" start="2024-11-16T18:56:53.428155" elapsed="0.020122"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<arg>${new_length+1}</arg>
+<arg>${old_length + 1}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-11-16T18:56:53.449294" elapsed="0.000000"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-11-16T18:56:53.450442" elapsed="2.251271"/>
+</kw>
+<doc>Test deleting a note and verifying the length decreases by one</doc>
+<status status="PASS" start="2024-11-16T18:56:46.706748" elapsed="8.994965"/>
 </test>
-<test id="s1-t5" name="Test Large Values" line="36">
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2024-11-08T20:12:10.641799" level="INFO">${earnings} = 1000000000</msg>
-<var>${earnings}</var>
-<arg>1000000000</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2024-11-08T20:12:10.641799" elapsed="0.000000"/>
+<test id="s1-t5" name="Edit Note Page Test" line="84">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:56:55.703712" level="INFO">Opening browser 'chrome' to base url 'http://127.0.0.1:5000/'.</msg>
+<arg>${URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-11-16T18:56:55.703712" elapsed="2.657163"/>
 </kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2024-11-08T20:12:10.642928" level="INFO">${expenses} = 500000000</msg>
-<var>${expenses}</var>
-<arg>500000000</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2024-11-08T20:12:10.642928" elapsed="0.000000"/>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:56:58.361874" level="INFO">Typing text 'testuser' into text field 'name=username'.</msg>
+<arg>name=username</arg>
+<arg>testuser</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T18:56:58.361874" elapsed="0.179501"/>
 </kw>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2024-11-08T20:12:10.643938" level="INFO">${expected_balance} = 500000000</msg>
-<var>${expected_balance}</var>
-<arg>${earnings} - ${expenses}</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2024-11-08T20:12:10.643938" elapsed="0.000000"/>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:56:58.541375" level="INFO">Typing text 'password' into text field 'name=password'.</msg>
+<arg>name=password</arg>
+<arg>password</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T18:56:58.541375" elapsed="0.137182"/>
 </kw>
-<kw name="Should Be Equal As Numbers" owner="BuiltIn">
-<msg time="2024-11-08T20:12:10.644942" level="INFO">Argument types are:
-&lt;class 'int'&gt;
-&lt;class 'str'&gt;</msg>
-<arg>${expected_balance}</arg>
-<arg>500000000</arg>
-<doc>Fails if objects are unequal after converting them to real numbers.</doc>
-<status status="PASS" start="2024-11-08T20:12:10.644942" elapsed="0.000000"/>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:56:58.678557" level="INFO">Clicking button 'xpath=//input[@type='submit']'.</msg>
+<arg>xpath=//input[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T18:56:58.678557" elapsed="0.110108"/>
 </kw>
-<doc>Test the financial calculation with large earnings and expenses</doc>
-<status status="PASS" start="2024-11-08T20:12:10.640861" elapsed="0.005605"/>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:56:58.789812" level="INFO">Clicking link 'Manage Notes'.</msg>
+<arg>Manage Notes</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T18:56:58.789812" elapsed="1.279088"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:57:00.069901" level="INFO">Typing text 'Note to be edited' into text field 'xpath=//textarea[@name='note']'.</msg>
+<arg>xpath=//textarea[@name='note']</arg>
+<arg>Note to be edited</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T18:57:00.068900" elapsed="0.242246"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:57:00.312146" level="INFO">Clicking button 'xpath=//button[contains(text(), 'Add Event')]'.</msg>
+<arg>xpath=//button[contains(text(), 'Add Event')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T18:57:00.311146" elapsed="0.197386"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:57:00.512907" level="INFO">Clicking link 'Edit'.</msg>
+<arg>Edit</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T18:57:00.512907" elapsed="0.416312"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:57:00.998980" level="INFO">Current page contains text 'Edit your note:'.</msg>
+<arg>Edit your note:</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-11-16T18:57:00.929219" elapsed="0.069761"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-11-16T18:57:00.998980" elapsed="2.306204"/>
+</kw>
+<doc>Test if the edit note page displays correctly</doc>
+<status status="PASS" start="2024-11-16T18:56:55.702712" elapsed="7.604477"/>
 </test>
-<status status="PASS" start="2024-11-08T20:12:10.281431" elapsed="0.368596"/>
+<test id="s1-t6" name="Edit Note Page Test with text" line="104">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:57:03.312181" level="INFO">Opening browser 'chrome' to base url 'http://127.0.0.1:5000/'.</msg>
+<arg>${URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-11-16T18:57:03.311182" elapsed="2.680165"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:57:05.993415" level="INFO">Typing text 'testuser' into text field 'name=username'.</msg>
+<arg>name=username</arg>
+<arg>testuser</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T18:57:05.992390" elapsed="0.167966"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:57:06.160356" level="INFO">Typing text 'password' into text field 'name=password'.</msg>
+<arg>name=password</arg>
+<arg>password</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T18:57:06.160356" elapsed="0.123082"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:57:06.284438" level="INFO">Clicking button 'xpath=//input[@type='submit']'.</msg>
+<arg>xpath=//input[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T18:57:06.283438" elapsed="0.664466"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:57:06.947904" level="INFO">Clicking link 'Manage Notes'.</msg>
+<arg>Manage Notes</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T18:57:06.947904" elapsed="0.513742"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:57:07.462643" level="INFO">Typing text 'Note to be edited' into text field 'xpath=//textarea[@name='note']'.</msg>
+<arg>xpath=//textarea[@name='note']</arg>
+<arg>Note to be edited</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T18:57:07.462643" elapsed="0.153296"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:57:07.615939" level="INFO">Clicking button 'xpath=//button[contains(text(), 'Add Event')]'.</msg>
+<arg>xpath=//button[contains(text(), 'Add Event')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T18:57:07.615939" elapsed="0.195757"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:57:07.812704" level="INFO">Clicking link 'Edit'.</msg>
+<arg>Edit</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T18:57:07.811696" elapsed="0.366197"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:57:08.181453" level="INFO">Typing text 'Note updated' into text field 'xpath=//textarea[@name='note']'.</msg>
+<arg>xpath=//textarea[@name='note']</arg>
+<arg>Note updated</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T18:57:08.180441" elapsed="0.252296"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:57:08.433747" level="INFO">Clicking button 'xpath=//button[contains(text(), 'Update Note')]'.</msg>
+<arg>xpath=//button[contains(text(), 'Update Note')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T18:57:08.433747" elapsed="0.159680"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-11-16T18:57:09.594496" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-11-16T18:57:08.594434" elapsed="1.000062"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:57:09.606410" level="INFO">Current page contains text 'Your Events'.</msg>
+<arg>Your Events</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-11-16T18:57:09.594496" elapsed="0.012918"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-11-16T18:57:09.607414" elapsed="2.319523"/>
+</kw>
+<doc>Test if the edit works correctly</doc>
+<status status="PASS" start="2024-11-16T18:57:03.309180" elapsed="8.618747"/>
+</test>
+<test id="s1-t7" name="Edit Note Page Test without text" line="128">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:57:11.932922" level="INFO">Opening browser 'chrome' to base url 'http://127.0.0.1:5000/'.</msg>
+<arg>${URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-11-16T18:57:11.931920" elapsed="2.639278"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:57:14.578150" level="INFO">Typing text 'testuser' into text field 'name=username'.</msg>
+<arg>name=username</arg>
+<arg>testuser</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T18:57:14.577137" elapsed="0.179126"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:57:14.757264" level="INFO">Typing text 'password' into text field 'name=password'.</msg>
+<arg>name=password</arg>
+<arg>password</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T18:57:14.757264" elapsed="0.159685"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:57:14.916949" level="INFO">Clicking button 'xpath=//input[@type='submit']'.</msg>
+<arg>xpath=//input[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T18:57:14.916949" elapsed="0.801413"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:57:15.718362" level="INFO">Clicking link 'Manage Notes'.</msg>
+<arg>Manage Notes</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T18:57:15.718362" elapsed="0.701626"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:57:16.419988" level="INFO">Typing text 'Note to be edited' into text field 'xpath=//textarea[@name='note']'.</msg>
+<arg>xpath=//textarea[@name='note']</arg>
+<arg>Note to be edited</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T18:57:16.419988" elapsed="0.148128"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:57:16.569187" level="INFO">Clicking button 'xpath=//button[contains(text(), 'Add Event')]'.</msg>
+<arg>xpath=//button[contains(text(), 'Add Event')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T18:57:16.568116" elapsed="0.099267"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:57:16.667383" level="INFO">Clicking link 'Edit'.</msg>
+<arg>Edit</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T18:57:16.667383" elapsed="0.340962"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:57:17.009347" level="INFO">Typing text '""' into text field 'xpath=//textarea[@name='note']'.</msg>
+<arg>xpath=//textarea[@name='note']</arg>
+<arg>${EMPTY}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T18:57:17.009347" elapsed="0.145174"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:57:17.154521" level="INFO">Clicking button 'xpath=//button[contains(text(), 'Update Note')]'.</msg>
+<arg>xpath=//button[contains(text(), 'Update Note')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-16T18:57:17.154521" elapsed="0.121110"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-11-16T18:57:18.277305" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-11-16T18:57:17.275631" elapsed="1.002194"/>
+</kw>
+<kw name="Page Should Not Contain" owner="SeleniumLibrary">
+<msg time="2024-11-16T18:57:18.335111" level="INFO">Current page does not contain text 'Your Events..'.</msg>
+<arg>Your Events..</arg>
+<doc>Verifies the current page does not contain ``text``.</doc>
+<status status="PASS" start="2024-11-16T18:57:18.278869" elapsed="0.056242"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-11-16T18:57:18.335111" elapsed="2.239527"/>
+</kw>
+<doc>Test if the edit without a text works</doc>
+<status status="PASS" start="2024-11-16T18:57:11.929925" elapsed="8.646162"/>
+</test>
+<status status="PASS" start="2024-11-16T18:56:24.175338" elapsed="56.405403"/>
 </suite>
 <statistics>
 <total>
-<stat pass="5" fail="0" skip="0">All Tests</stat>
+<stat pass="7" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="5" fail="0" skip="0" id="s1" name="Financial test">Financial test</stat>
+<stat pass="7" fail="0" skip="0" id="s1" name="Note Crud">Note Crud</stat>
 </suite>
 </statistics>
 <errors>
