@@ -139,6 +139,36 @@ def profile():
         return redirect(url_for('profile'))
 
     return render_template('profile.html', user=user)
+@app.route('/edit_profile', methods=['GET', 'POST'])
+def edit_profile():
+    if 'username' not in session:
+        return redirect(url_for('home'))
+    
+    user = users[session['username']]
+    
+    if request.method == 'POST':
+        new_username = request.form['username']
+        new_first_name = request.form['first_name']
+        new_last_name = request.form['last_name']
+        new_phone = request.form['phone']
+
+        if new_username and new_username != session['username']:
+            if new_username not in users:
+                users[new_username] = users.pop(session['username'])
+                session['username'] = new_username
+                flash('Username updated successfully!')
+            else:
+                flash('Username already taken!')
+
+        users[session['username']]['first_name'] = new_first_name
+        users[session['username']]['last_name'] = new_last_name
+        users[session['username']]['phone'] = new_phone
+        
+        return redirect(url_for('profile'))
+    
+    # Pass `user` to the template instead of `users`
+    return render_template('edit_profile.html', user=user)
+
 
 @app.route('/dashboard')
 def dashboard():
